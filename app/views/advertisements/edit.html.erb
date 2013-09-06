@@ -1,0 +1,37 @@
+<%= form_for(@advertisement) do |f| %>
+  <% if @advertisement.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@advertisement.errors.count, "error") %> prohibited
+      this post from being saved:</h2>
+    <ul>
+    <% @advertisement.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label '名称' %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label '广告位置' %><br>
+    <%= f.text_field :position %>
+  </p>
+
+  <p>
+    <%= f.label '上传图片' %><br>
+    <%= f.text_field :image_path %>
+  </p>
+
+  <p>
+    <%= f.label '链接' %><br>
+    <%= f.text_field :link_path %>
+  </p>
+  <p>
+    <%= f.submit '提交'%>
+  </p>
+<% end %>
+
+<%= link_to '返回', root_path %>

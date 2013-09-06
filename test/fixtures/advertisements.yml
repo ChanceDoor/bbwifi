@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  position: 1
+  image_path: MyString
+  link_path: MyString
+  store_manager: 
+
+two:
+  name: MyString
+  position: 1
+  image_path: MyString
+  link_path: MyString
+  store_manager: 

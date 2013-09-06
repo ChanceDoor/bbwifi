@@ -1,0 +1,18 @@
+<div class="tabbable tabs-left">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab1" data-toggle="tab"> 管理广告</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab1">
+        <div><%=link_to '添加',new_advertisement_path%></div>
+        <%if @advertisements != nil%>
+          <% @advertisements.each do |advertisement|%>
+            <div><%= advertisement.name %>|<%= advertisement.position %>|<%= advertisement.link_path%>|<%=link_to '显示',advertisement_path(advertisement)%>|<%=link_to '修改',edit_advertisement_path(advertisement)%>|<%=link_to '删除',advertisement_path(advertisement),method: :delete,data: {confirm: '确定删除？'}%></div>
+          <% end %>
+        <%else%>
+          当前项没有条目
+        <%end%>
+      </div>
+    </div>
+</div>

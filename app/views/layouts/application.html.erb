@@ -7,8 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div class="navbar">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'layouts/navigation' %>
+          <% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) %>
+              <div  style="display:none" class="alert alert-<%= name == :notice ? "success" : "error" %>">
+                <a class="close" data-dismiss="alert">&#215;</a>
+                <%= content_tag :div, msg, :id => "flash_#{name}" %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </nav>
+</div>
+<div id="main" role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+            <div class="span12">
+              <%= yield %>
+            </div>
+          </div>
+          <footer>
+            <div><%=link_to '关于我们','#'%> | <a href="#" >联系我们</a> | <a href="#" >业务合作</a>  </div>
+            <div>沪ICP备11041017号-2</div>
+            <div><a href="http://www.miitbeian.gov.cn/">http://www.miitbeian.gov.cn/</a></div>
+          </footer>
+        </div>
+      </div> <!--! end of .container -->
+    </div> <!--! end of #main -->
 </body>
 </html>
