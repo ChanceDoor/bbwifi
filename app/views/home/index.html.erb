@@ -1,18 +1,42 @@
 <div class="tabbable tabs-left">
     <ul class="nav nav-tabs">
       <li class="active"><a href="#tab1" data-toggle="tab"> 管理广告</a></li>
+      <li><a href="#tab2" data-toggle="tab">广告预览</a></li>
     </ul>
 
     <div class="tab-content">
       <div class="tab-pane active" id="tab1">
-        <div><%=link_to '添加',new_advertisement_path%></div>
+	<div><%=link_to '添加',new_advertisement_path, :class=>'btn btn-success'%></div>
         <%if @advertisements != nil%>
+          <% position=['不显示','上','左','右'] %>
           <% @advertisements.each do |advertisement|%>
-            <div><%= advertisement.name %>|<%= advertisement.position %>|<%= advertisement.link_path%>|<%=link_to '显示',advertisement_path(advertisement)%>|<%=link_to '修改',edit_advertisement_path(advertisement)%>|<%=link_to '删除',advertisement_path(advertisement),method: :delete,data: {confirm: '确定删除？'}%></div>
+            <div><%= advertisement.name %>|<%= position[advertisement.position] %>|<%= advertisement.link_path%>|<%=link_to '显示',advertisement_path(advertisement)%>|<%=link_to '修改',edit_advertisement_path(advertisement)%>|<%=link_to '删除',advertisement_path(advertisement),method: :delete,data: {confirm: '确定删除？'}%></div>
           <% end %>
         <%else%>
           当前项没有条目
         <%end%>
       </div>
+
+      <div class="tab-pane" id="tab2">
+        <div class = "phone-window">
+          <div class = "ad-up">
+            <% if @active_ads[0]%>
+              <a href="<%=@active_ads[0].link_path%>"><%= image_tag @active_ads[0].image_path, :title =>@active_ads[0].link_path %></a></div>
+            <% end %>
+          <div class = "bottom-body">
+            <div class = "ad-sides pull-left">
+              <% if @active_ads[1]%>
+                <a href="<%=@active_ads[1].link_path%>"><%= image_tag @active_ads[1].image_path,:html => {:title =>'@active_ads[1].link_path'} %></a>
+              <% end %>
+            </div>
+            <div></div>
+            <div class = "ad-sides pull-right">
+              <% if @active_ads[2]%>
+                <a href="<%=@active_ads[2].link_path%>"><%= image_tag @active_ads[2].image_path,:html => {:title =>'@active_ads[2].link_path'} %></a></div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+
     </div>
 </div>

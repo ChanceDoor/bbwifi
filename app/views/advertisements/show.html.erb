@@ -1,8 +1,9 @@
+<% position = ['不显示','上','左','右'] %>
 <h5>名称</h5>
-<%=@advertisement.name%><br />
+<%= @advertisement.name %><br />
 <h5>位置</h5>
-<%=@advertisement.position%><br />
+<%= position[@advertisement.position] %><br />
 <h5>链接</h5>
-<%=@advertisement.link_path%><br />
+<a href="<%= @advertisement.link_path %>"><%= @advertisement.link_path %></a><br />
 <h5>图片</h5>
-<%=@advertisement.image_path%><br />
+<%=image_tag  @advertisement.image_path %><br />
