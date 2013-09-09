@@ -6,15 +6,36 @@
 
     <div class="tab-content">
       <div class="tab-pane active" id="tab1">
-	<div><%=link_to '添加',new_advertisement_path, :class=>'btn btn-success'%></div>
-        <%if @advertisements != nil%>
-          <% position=['不显示','上','左','右'] %>
-          <% @advertisements.each do |advertisement|%>
-            <div><%= advertisement.name %>|<%= position[advertisement.position] %>|<%= advertisement.link_path%>|<%=link_to '显示',advertisement_path(advertisement)%>|<%=link_to '修改',edit_advertisement_path(advertisement)%>|<%=link_to '删除',advertisement_path(advertisement),method: :delete,data: {confirm: '确定删除？'}%></div>
-          <% end %>
-        <%else%>
-          当前项没有条目
-        <%end%>
+	<div><%=link_to '添加',new_advertisement_path, :class=>'btn btn-success margin-10'%></div>
+	<div>
+	  <table class="margin-10">
+	    <tr>
+	      <th>名称</th>
+	      <th>位置</th>
+	      <th>链接</th>
+	      <th></th>
+	      <th></th>
+	      <th></th>
+	    </tr>
+	    <%if @advertisements != nil%>
+	      <% position=['不显示','上','左','右'] %>
+	      <% @advertisements.each do |advertisement|%>
+		<tr>
+		  <td><%= advertisement.name %></td>
+		  <td><%= position[advertisement.position] %></td>
+		  <td><%= advertisement.link_path%></td>
+		  <td><%=link_to '显示',advertisement_path(advertisement)%></td>
+		  <td><%=link_to '修改',edit_advertisement_path(advertisement)%></td>
+		  <td><%=link_to '删除',advertisement_path(advertisement),method: :delete,data: {confirm: '确定删除？'}%></td>
+		</tr>
+              <% end %>
+	    <%else%>
+	      <tr>
+                <td>当前项没有条目</td>
+	      </tr>
+	    <%end%>
+	  </table>
+	</div>
       </div>
 
       <div class="tab-pane" id="tab2">
@@ -26,13 +47,13 @@
           <div class = "bottom-body">
             <div class = "ad-sides pull-left">
               <% if @active_ads[1]%>
-                <a href="<%=@active_ads[1].link_path%>"><%= image_tag @active_ads[1].image_path,:html => {:title =>'@active_ads[1].link_path'} %></a>
+                <a href="<%=@active_ads[1].link_path%>"><%= image_tag @active_ads[1].image_path,:title =>@active_ads[1].link_path %></a>
               <% end %>
             </div>
             <div></div>
             <div class = "ad-sides pull-right">
               <% if @active_ads[2]%>
-                <a href="<%=@active_ads[2].link_path%>"><%= image_tag @active_ads[2].image_path,:html => {:title =>'@active_ads[2].link_path'} %></a></div>
+                <a href="<%=@active_ads[2].link_path%>"><%= image_tag @active_ads[2].image_path,:title =>@active_ads[2].link_path %></a></div>
               <% end %>
           </div>
         </div>
