@@ -7,7 +7,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
-gem "wice_grid", '3.2.1'
 gem 'rails_kindeditor', '~> 0.4.0'
 gem 'jquery-rails'
 gem 'devise'

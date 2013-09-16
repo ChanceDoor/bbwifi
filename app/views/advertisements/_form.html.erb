@@ -17,11 +17,11 @@
 
   <p>
     <%= f.label '广告位置' %><br>
-    <%= f.select :position, options_for_select([['上',1],['左',2],['右',3]],@advertisement.position) %>
+    <%= f.select :position, options_for_select([['上',1],['中',2],['下',3]],@advertisement.position) %>
   </p>
 
   <p>
-    <%= f.label '上传图片' %>(上方广告大小为：480x144 px;两侧广告大小为：120x816px)<br>
+    <%= f.label '上传图片' %>(广告大小为：480x309 px)<br>
     <%= f.file_field :image_path %>
   </p>
 
