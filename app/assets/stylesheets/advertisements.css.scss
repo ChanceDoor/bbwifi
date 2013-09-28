@@ -1,6 +1,6 @@
 // Place all the styles related to the advertisements controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.phone-window{width:480px;height:960px;margin-left:100px;-webkit-box-shadow: 0px 0px 20px black;-moz-box-shadow: 0 0 20px black;box-shadow: 0 0 20px black;}
-.ad-title{height: 30px;margin-bottom:10px;border-bottom: 3px solid rgb(194, 185, 185);}
+.phone-window{position:relative;width:480px;height:960px;margin-left:100px;-webkit-box-shadow: 0px 0px 20px black;-moz-box-shadow: 0 0 20px black;box-shadow: 0 0 20px black;}
+.ad-title{height:20px;margin-bottom:10px;border-bottom: 3px solid rgb(194, 185, 185);}
 .ad{width:480px;height:309px;overflow:hidden}

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  mall: MyString
+  logo: MyString
+  background: MyString
+  onlines: 1
+  store_manager: 
+
+two:
+  name: MyString
+  mall: MyString
+  logo: MyString
+  background: MyString
+  onlines: 1
+  store_manager: 

@@ -2,5 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .margin-10{margin:10px}
+.ad-table{width:80%;text-align: center;}
+.ad-tr{background:#B1D9F3;}
 table{border:1px solid;}
 th{border-bottom:2px solid}
+.h200{height:200px}
+.logo{position:absolute;top:180px;left:30px;width:100%}
+.logo img{width:80px;height:80px;border:4px solid white;-webkit-box-shadow: 0px 0px 8px black;-moz-box-shadow: 0 0 8px black;box-shadow: 0 0 8px black;}
+.login{margin-top:100px;padding: 0 30px;}
+.text-title{font-weight: bold;font-size: 15pt;}
+.other-login{text-align:left;width:390px}
+.arrow{margin-top: 14px; margin-right: 10px; float: right;color: #F7CF00;font-size: 15pt;font-weight: bold;}
+

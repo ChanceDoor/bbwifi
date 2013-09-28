@@ -2,12 +2,14 @@
     <ul class="nav nav-tabs">
       <li class="active"><a href="#tab1" data-toggle="tab"> 管理广告</a></li>
       <li><a href="#tab2" data-toggle="tab">广告预览</a></li>
+      <li><a href="#tab3" data-toggle="tab"> 管理店铺</a></li>
+      <li><a href="#tab4" data-toggle="tab">店铺预览</a></li>
     </ul>
     <div class="tab-content">
       <div class="tab-pane active" id="tab1">
 	<div><%=link_to '添加',new_advertisement_path, :class=>'btn btn-success margin-10'%></div>
 	<div>
-	  <table class="margin-10">
+	  <table class="margin-10 ad-table">
 	    <tr>
 	      <th>名称</th>
 	      <th>位置</th>
@@ -19,7 +21,7 @@
 	    <%if @advertisements != nil%>
 	      <% position=['不显示','上','中','下'] %>
 	      <% @advertisements.each do |advertisement|%>
-		<tr>
+		<tr <%= cycle('class=ad-tr','')%>>
 		  <td><%= advertisement.name %></td>
 		  <td><%= position[advertisement.position] %></td>
 		  <td><%= advertisement.link_path%></td>
@@ -39,7 +41,10 @@
 
       <div class="tab-pane" id="tab2">
 	<div class = "phone-window">
-	  <div class = "ad-title"> 正在跳转</div>
+	  <div class="ad-title">
+	  <div style="float:left;width:80%"> 正在跳转...</div>
+	  <div style="float:right;width:20%">10</div>
+	</div>
 
 	  <% for i in 0...3 do %>
 	    <% if @active_ads[i]%>
@@ -51,5 +56,58 @@
         </div>
       </div>
 
+      <div class="tab-pane" id="tab3">
+	<%if @store.first != nil%>
+	<div>
+	  <table class="margin-10 ad-table">
+	    <tr>
+	      <th>名称</th>
+	      <th>所处商场</th>
+	      <th>在线人数</th>
+	      <th></th>
+	      <th></th>
+	      <th></th>
+	    </tr>
+	    <tr>
+              <td><%= @store.first.name %></td>
+              <td><%= @store.first.mall %></td>
+              <td><%= @store.first.onlines %></td>
+              <td><%=link_to '显示',store_path(@store.first)%></td>
+              <td><%=link_to '修改',edit_store_path(@store.first)%></td>
+              <td><%=link_to '删除',store_path(@store.first),method: :delete,data: {confirm: '确定删除？'    }%></td>
+	    </tr>
+	  </table>
+	</div>
+	<%else%>
+  	  <div><%=link_to '添加',new_store_path, :class=>'btn btn-success margin-10'%></div>
+        <%end%>
+      </div>
+      <div class="tab-pane" id="tab4">
+	<div class = "phone-window">
+	  <% if @store.first.nil? %>
+            <div><%=link_to '添加',new_store_path, :class=>'btn btn-success margin-10'%></div>
+	  <% else %>
+	    <div class = "h200" style="background:url(<%=image_path @store.first.background%>)"></div>
+            <div class = "logo">
+	      <div style="margin-right:6px;float:left"><%= image_tag @store.first.logo %></div>
+	      <div style="padding-top:30px">
+		<div class="text-title"><%= @store.first.name %></div>
+		<div>本店当前wifi用户：<%= @store.first.onlines %>人</div>
+	      </div>
+	    </div>
+	    <div class="login">
+	      <div>无需注册，使用以下方式登录本店wifi：</div>
+	      <a href="#" class="btn other-login"><%=image_tag "weibo.png"%>用新浪微博帐号登录<span class="arrow">></span></a>
+	      <a href="#" class="btn other-login"><%=image_tag "qq.png"%>用QQ帐号登录<span class="arrow">></span></a>
+	      <div> 用手机号码登录：</div>
+	      <%= text_field "temp",:placeholder => '请输入您的手机号码'%>
+	      <a class="btn btn-primary" style="vertical-align: top;" href="#">登录</a><br>
+	      <a>忘记密码</a>
+	    </div>
+	    <% end %>
+          </div>
+	</div>
+
+      </div>
     </div>
 </div>
