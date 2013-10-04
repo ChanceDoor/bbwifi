@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html class="phone-html">
 <head>
   <title>Bbwifi</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <script>
@@ -20,10 +20,10 @@
     });
   </script>
 </head>
-<body>
+<body class="phone">
   <div class="phone-window">
     <div class = "h200" style="background:url(<%=image_path @store.background%>)"></div>
-    <div class = "logo">
+    <div class = "phone-logo">
       <div style="margin-right:6px;float:left"><%= image_tag @store.logo %></div>
       <div style="padding-top:30px">
 	<div class="text-title"><%= @store.name %></div>
@@ -32,8 +32,8 @@
     </div>
     <div class="login">
       <div>无需注册，使用以下方式登录本店wifi：</div>
-      <a href="#" class="btn other-login"><%=image_tag "weibo.png"%>用新浪微博帐号登录<span class="arrow">></span></a>
-      <a href="#" class="btn other-login"><%=image_tag "qq.png"%>用QQ帐号登录<span class="arrow">></span></a>
+      <a href="#" class="btn phone-other-login"><%=image_tag "weibo.png"%>用新浪微博帐号登录<span class="arrow">></span></a>
+      <a href="#" class="btn phone-other-login"><%=image_tag "qq.png"%>用QQ帐号登录<span class="arrow">></span></a>
       <div> 用手机号码登录：</div>
       <%= form_for @client,:url => url_for(:controller => 'stores', :action => 'sign_in') do |f|%>
 	<%= f.text_field :phonenumber,:placeholder => '请输入您的手机号码'%>

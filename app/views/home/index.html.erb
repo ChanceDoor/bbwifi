@@ -40,7 +40,7 @@
       </div>
 
       <div class="tab-pane" id="tab2">
-	<div class = "phone-window">
+	<div class = "ad-phone-window">
 	  <div class="ad-title">
 	  <div style="float:left;width:80%"> 正在跳转...</div>
 	  <div style="float:right;width:20%">10</div>
@@ -83,7 +83,7 @@
         <%end%>
       </div>
       <div class="tab-pane" id="tab4">
-	<div class = "phone-window">
+	<div class = "ad-phone-window">
 	  <% if @store.first.nil? %>
             <div><%=link_to '添加',new_store_path, :class=>'btn btn-success margin-10'%></div>
 	  <% else %>
