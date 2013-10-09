@@ -1,0 +1,24 @@
+<% if admin_signed_in?%>
+  <h2>添加店面账号</h2>
+  <%= form_for(@store_manager, :as => 'store_manager', :url => store_managers_path,:html=>{:method => :post}) do |f| %>
+    <div>
+      <%= f.label '账号' %><br />
+      <%= f.text_field :username, :autofocus => true %>
+    </div>
+
+    <div>
+      <%= f.label '邮箱' %><br />
+      <%= f.email_field :email %>
+    </div>
+
+    <div>
+      <%= f.label '密码' %><br />
+      <%= f.password_field :password %>
+    </div>
+    <div><%= f.submit "创建" %></div>
+  <% end %>
+<% else %>
+  <h2>注册</h2>
+  <div>后台管理系统未开放注册</div>
+<% end %>
+<%= link_to "返回", :back %>

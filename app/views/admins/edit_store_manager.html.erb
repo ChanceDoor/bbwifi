@@ -1,0 +1,18 @@
+<h2> 修改帐号 <%= @store_manager.username %></h2>
+
+<%= form_for(@store_manager,:as => 'store_manager', :url => store_manager_path(@store_manager), :html => { :method => :put }) do |f| %>
+
+  <div><%= f.label '用户名' %><br />
+    <%= f.text_field :username, :autofocus => true %></div>
+  <div><%= f.label '邮箱' %><br />
+    <%= f.email_field :email %></div>
+  <div><%= f.label '新密码' %> <i>(留空不作修改)</i><br />
+  <%= f.password_field :password, :autocomplete => "off" %></div>
+
+  <div><%= f.label '再次输入新密码' %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "修改" %></div>
+<% end %>
+
+<%= link_to "返回", :back %>

@@ -4,6 +4,10 @@ Bbwifi::Application.routes.draw do
   authenticated :admin do
     match "/admin", :to => "admins#index", :as => 'admin_root'
     delete "/store_manager/:id(.:format)",:to => "admins#destroy_store_manager", :as => 'store_manager'
+    get '/admins/new_store_manager(.:format)',:to => "admins#new_store_manager", :as => 'new_store_manager'
+    post '/admins/store_managers(.:format)', :to => "admins#create_store_manager", :as => 'store_managers'
+    get '/admins/edit_store_manager/:id(.:format)',:to =>"admins#edit_store_manager",:as => 'edit_store_manager'
+    put '/admins/edit_store_manager/:id(.:format)',:to => "admins#update_store_manager", :as => 'store_manager'
   end
   devise_scope :admin do
     match "/admin" => "admins/sessions#new",:as => 'admin_root'

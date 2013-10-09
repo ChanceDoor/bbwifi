@@ -1,4 +1,4 @@
-店面账号管理<%= link_to '添加',new_store_manager_registration_path,:class => 'btn btn-success margin-10' %>
+店面账号管理<%= link_to '添加',new_store_manager_path,:class => 'btn btn-success margin-10' %>
 <table class="margin-10 ad-table">
   <tr>
     <th>账号</th>
@@ -10,7 +10,7 @@
     <tr <%= cycle('class=ad-tr','')%>>
     <td><%= s.username%></td>
     <td><%= s.email%></td>
-    <td><%= link_to '修改',edit_store_manager_registration_path(s)%></td>
+    <td><%= link_to '修改',edit_store_manager_path(s)%></td>
     <td><%= link_to '删除',store_manager_path(s),:method =>:delete,data: { confirm: '删除后不可恢复，确认删除？' }%></td>
   </tr>
   <% end %>
